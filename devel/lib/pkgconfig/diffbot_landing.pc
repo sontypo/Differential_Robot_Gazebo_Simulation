@@ -1,0 +1,8 @@
+prefix=/home/saun/Downloads/differential_haibotlab/devel
+
+Name: diffbot_landing
+Description: Description of diffbot_landing
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

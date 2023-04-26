@@ -1,0 +1,2 @@
+diffbot_landing:differential_robot:robot_simulations/robot_gazebo:robot_simulations/robot_simulations
+-DCATKIN_DEVEL_PREFIX=/home/saun/Downloads/differential_haibotlab/devel -DCMAKE_INSTALL_PREFIX=/home/saun/Downloads/differential_haibotlab/install -G Unix Makefiles

@@ -1,0 +1,187 @@
+<?xml version="1.0" ?>
+<robot name="differential_haibot">
+  <link name="base_footprint"/>
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.050" rpy="0 0 0"/>
+  </joint>
+
+ <link name="base_link">
+    <inertial>
+      <mass value="10"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.66667" ixy="0" ixz="0" iyy="1.66667" iyz="0" izz="1.66667"/>
+    </inertial>
+    <collision name="base_collision">
+      <origin xyz="-0.09255 -0.00018  0.05498" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.56 0.418 0.23"/>
+      </geometry>
+    </collision>
+    <visual name="base_visual">
+      <origin xyz="-0.09255 -0.00018  0.05498" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.56 0.418 0.23"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wheel_left_link">
+    <inertial>
+      <mass value="1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="wheel_left_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.03"/>
+      </geometry>
+    </collision>
+    <visual name="wheel_left_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.03"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wheel_right_link">
+    <inertial>
+      <mass value="1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="wheel_right_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.03"/>
+      </geometry>
+    </collision>
+    <visual name="wheel_right_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.03"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="forward_ball_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.05" ixy="0" ixz="0" iyy="0.05" iyz="0" izz="0.05"/>
+    </inertial>
+    <collision name="forward_ball_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="forward_ball_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="backward_ball_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.05" ixy="0" ixz="0" iyy="0.05" iyz="0" izz="0.05"/>
+    </inertial>
+    <collision name="backward_ball_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="backward_ball_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mount_base_link">
+    <inertial>
+      <mass value="1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="mount_base_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+    <visual name="mount_base_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="differential_haibot__lidar">
+    <inertial>
+      <mass value="0.125"/>
+      <origin xyz="0.25472 0      0.1301" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.000" ixz="0.000" iyy="0.001" iyz="0.000" izz="0.001"/>
+    </inertial>
+    <collision name="differential_haibot__lidar_sensor_collision">
+      <origin xyz="0.25472 0      0.1301" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.0508" length="0.055"/>
+      </geometry>
+    </collision>
+    <visual name="differential_haibot__lidar_sensor_visual">
+      <origin xyz="0.25472 0      0.1301" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://turtlebot3_gazebo/models/turtlebot3_common_meshes/lds.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="differential_haibot__BASE_TO_LEFTWHEEL" type="revolute">
+    <parent link="differential_haibot__base_link"/>
+    <child link="differential_haibot__left_wheel"/>
+    <origin xyz="-0.09255  0.20881 -0.04001" rpy="-1.57265  0       0"/>
+    <axis xyz="0  0 -1"/>
+    <limit lower="-1.79769e+308" upper="1.79769e+308" effort="-1.0" velocity="-1.0"/>
+  </joint>
+  <joint name="differential_haibot__BASE_TO_RIGHTWHEEL" type="revolute">
+    <parent link="differential_haibot__base_link"/>
+    <child link="differential_haibot__right_wheel"/>
+    <origin xyz="-0.09255 -0.20918 -0.04001" rpy="-1.57265  0       0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.79769e+308" upper="1.79769e+308" effort="-1.0" velocity="-1.0"/>
+  </joint>
+  <joint name="differential_haibot__BASE_TO_FORWBALL" type="ball">
+    <parent link="differential_haibot__base_link"/>
+    <child link="differential_haibot__forward_ball"/>
+    <origin xyz="0.10744 -0.00018 -0.07001" rpy="0 0 0"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="differential_haibot__BASE_TO_BACKWBALL" type="ball">
+    <parent link="differential_haibot__base_link"/>
+    <child link="differential_haibot__backward_ball"/>
+    <origin xyz="-2.9255e-01 -1.8000e-04 -7.0010e-02" rpy="0 0 0"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="differential_haibot__BASE_TO_MOUNT" type="fixed">
+    <parent link="differential_haibot__base_link"/>
+    <child link="differential_haibot__mount_base"/>
+    <origin xyz="2.1102e-01 -1.8000e-04  1.2998e-01" rpy="0 0 0"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="differential_haibot__MOUNT_TO_SENSOR" type="fixed">
+    <parent link="differential_haibot__mount_base"/>
+    <child link="differential_haibot__lidar"/>
+    <origin xyz="-2.1102e-01  1.8000e-04 -1.2998e-01" rpy="0 0 0"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+ 
+</robot>
