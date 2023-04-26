@@ -2,7 +2,7 @@
 
 <Son_Nguyen: son94227@gmail.com>
 
->> Vietnamese Version (English update later - Translate into English if nessesary)
+>> Vietnamese Version (English update later - Translate to English if nessesary)
 
 ---------------------------------------------------------------
 <> Cách chạy file .launch khởi tạo môi trường và robot vi sai: 
