@@ -17,3 +17,5 @@
 	(với thuộc tính slam_methods được gán cho phương thức slam muốn sử dụng)
 	+ b4: sau khi màn hình Rviz và Gazebo hiện ra, để visualize dữ liệu, ta chọn file -> Open Config | Ctrl+O -> không gian lưu trữ differential -> src -> rgbd_cfg.rviz
 	+ b5: kích vào termial đang chạy file .launch sử dụng cách phím A, S, D, W, X để điều khiển robot di chuyển.
+	
+![diffbot_realsize](https://user-images.githubusercontent.com/67283783/234550925-fdcf1577-15ff-44ab-a75f-5d6b4c4dcfcd.png)
